@@ -1,9 +1,11 @@
 import NavBar from "../components/NavBar"
+import { useEffect } from "react"
 
 const Home = () => {
     
     //  Home page has image of a forest covering it
 
+    
     return ( 
     <>
         <body className="bg-landing_img h-screen w-screen bg-no-repeat bg-cover">
