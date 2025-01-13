@@ -5,6 +5,7 @@ import PageError from './pages/404Error'
 import Login from './pages/login'
 import './interceptor/axios';
 import { Logout } from './components/logout'
+import Register from './pages/register'
 
 function App() {
 
@@ -17,6 +18,7 @@ function App() {
           <Route path='/' element={<Home/>}/>
           <Route path='/login' element={<Login/>}/>
           <Route path='/logout' element={<Logout/>}/>
+          <Route path='/register' element={<Register/>}/>
           <Route path='*' element={<PageError/>}/>
         </Routes>
       </BrowserRouter>

@@ -4,7 +4,7 @@ import { useState } from "react";
 
 const Login = () => {
     
-    const [username, setUsername] = useState('');
+    const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
     const submit = async e => {
@@ -12,7 +12,7 @@ const Login = () => {
         e.preventDefault()
 
         const user = {
-            username: username,
+            email: email,
             password: password
         };
 
@@ -35,13 +35,13 @@ const Login = () => {
           <div className="Auth-form-content">
             <h3 className="Auth-form-title">Sign In</h3>
             <div className="form-group mt-3">
-              <label>Username</label>
+              <label>Email</label>
               <input className="form-control mt-1" 
-                placeholder="Enter Username" 
-                name='username'  
-                type='text' value={username}
+                placeholder="Enter Email" 
+                name='email'  
+                type='text' value={email}
                 required 
-                onChange={e => setUsername(e.target.value)}/>
+                onChange={e => setEmail(e.target.value)}/>
             </div>
             <div className="form-group mt-3">
               <label>Password</label>
@@ -56,6 +56,9 @@ const Login = () => {
             <div className="d-grid gap-2 mt-3">
               <button type="submit" 
                  className="btn btn-primary">Submit</button>
+            </div>
+            <div>
+              <a href="/register">Create account </a>
             </div>
           </div>
        </form>

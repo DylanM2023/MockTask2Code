@@ -1,6 +1,10 @@
 from django.db import models
-# Create your models here.
+from django.contrib.auth.models import AbstractUser
 
-class React(models.Model):
-    animal = models.CharField(max_length = 30)
-    detail = models.CharField(max_length=50)
+class CustomUser(AbstractUser):
+    email = models.EmailField(unique=True)
+    USERNAME_FIELD="email"
+    REQUIRED_FIELDS=["username"]
+
+    def __str__(self) -> str:
+        return self.email
