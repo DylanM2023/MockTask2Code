@@ -32,8 +32,4 @@ class UserRegistrationAPIView(GenericAPIView):
         data["tokens"] = {"refresh":str(token), "access": str(token.access_token)}
         return Response(data, status= status.HTTP_201_CREATED)
     
-class UserAccountAPIView(GenericAPIView):
-    permission_classes = (IsAuthenticated)
 
-    serializer_class = (AccSerializer)
-    def get(self, request):
