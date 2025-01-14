@@ -1,8 +1,9 @@
 import {useEffect, useState} from "react"
 import axios from "axios";
+
 export const Logout = () => {
     useEffect(() => {
-        (async () => {
+        (async (e) => {
             try {
             const {data} = await  
                     axios.post('http://localhost:8000/logout/',{
@@ -18,6 +19,6 @@ export const Logout = () => {
             })();
     }, []);
     return (
-       <div></div>
-     )
+        <div></div>
+    )
 }
