@@ -15,11 +15,11 @@ const NavBar = () => {
     return ( 
     <>
     <nav className="flex bg-green-600 h-12 justify-center">
-        <h1 className="flex-grow p-2 text-xl font-bold">RIDGET-ZOO-ADVENTURES</h1>
-        <a href="/shop" className="text-center p-1.5 text-xl border-2 border-black">SHOP</a>
-        <a href="/shop" className="p-1.5 text-xl border-2 border-black">MAP</a>
-        {isAuth ? <Nav.Link href="/logout" className='p-1.5 text-xl border-2 border-black'>LOGOUT</Nav.Link> :  <Nav.Link href="/login" className='p-1.5 text-xl border-2 border-black'>LOGIN</Nav.Link>}
-        <a href="/shop" className="p-1.5 text-xl border-2 border-black">ACCOUNT</a>
+        <a href='/' className="flex-grow p-2.5 text-lg font-bold">RIDGET-ZOO-ADVENTURES</a>
+        <a href="/shop" className="text-center py-1.5 px-0.5 text-lg border-2 border-black">SHOP</a>
+        <a href="/shop" className="py-1.5 px-0.5 text-lg border-2 border-black">MAP</a>
+        {isAuth ? <Nav.Link href="/logout" className='py-1.5 px-0.5 text-lg border-2 border-black'>LOGOUT</Nav.Link> :  <Nav.Link href="/login" className='py-1.5 px-0.5 text-lg border-2 border-black'>LOGIN</Nav.Link>}
+        <a href="/shop" className="py-1.5 text-lg border-2 px-1 border-black">ACC</a>
     </nav>
     </> 
     );
