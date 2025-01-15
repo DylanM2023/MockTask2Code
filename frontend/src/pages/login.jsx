@@ -6,12 +6,15 @@ const Login = () => {
     
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [error, setError] = useState('');
+
 
     const submit = async e => {
 
         e.preventDefault()
-
-        const user = {
+        setError('')
+        try{
+          const user = {
             email: email,
             password: password
         };
@@ -24,39 +27,39 @@ const Login = () => {
 
         axios.defaults.headers.common['Authorization'] = `Bearer ${data['access']}`;
         window.location.href = '/'
-        };
+        } catch(err){
+            setError('Incorrect username or password')
+        }};
 
     return ( 
-        <div className="Auth-form-container">
-          <form className="Auth-form" onSubmit={submit}>
-            <div className="Auth-form-content">
-              <h3 className="Auth-form-title">Sign In</h3>
-              <div className="form-group mt-3">
-                <label>Email</label>
-                <input className="form-control mt-1" 
+        <div className="h-max w-auto">
+          <div className="bg-landing_img w-auto mx-10 my-5 h-60 bg-no-repeat bg-cover border-2 border-black"></div>
+          <form className="flex-col justify-center w-2/3 mx-20" onSubmit={submit}>
+            <div>
+              <h3 className="font-bold text-2xl text-center py-2">Sign In</h3>
+              <div className="py-4">
+                <input className="font-bold border-2 border-black w-full" 
                   placeholder="Enter Email" 
                   name='email'  
                   type='text' value={email}
                   required 
                   onChange={e => setEmail(e.target.value)}/>
               </div>
-              <div className="form-group mt-3">
-                <label>Password</label>
+              <div>
                 <input name='password' 
                   type="password"     
-                  className="form-control mt-1"
-                  placeholder="Enter password"
+                  className="font-bold border-2 border-black w-full"
+                  placeholder="Enter Password"
                   value={password}
                   required
                   onChange={e => setPassword(e.target.value)}/>
               </div>
-              <div className="d-grid gap-2 mt-3">
+              <div className="text-red-500 font-bold py-1">{error}</div>
+              <div className="text-center">
                 <button type="submit" 
-                    className="btn btn-primary">Submit</button>
+                    className="border-2 border-black text-lg">Sign In</button>
               </div>
-              <div>
-                <a href="/register">Create account </a>
-              </div>
+              <div>Don't have an account?<a className='text-blue-500 font-bold px-3' href="/register">Register Here</a></div>
             </div>
         </form>
       </div>
