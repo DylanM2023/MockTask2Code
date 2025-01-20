@@ -32,11 +32,11 @@ const Register = () => {
     
     return ( 
 
-        <div>
-          <div className="bg-landing_img w-auto mx-10 my-5 h-60 bg-no-repeat bg-cover border-2 border-black"></div>
+        <div className="place-items-center">
+          <div className="bg-landing_img w-2/3 bg-center mx-10 my-5 h-60 bg-no-repeat bg-cover border-2 border-black"></div>
         <form className="flex-col justify-center w-2/3 mx-20" onSubmit={submit}>
           <div>
-            <h3 className="font-bold text-2xl text-center py-2">Register</h3>
+            <h3 className="font-bold text-2xl text-center py-2 desktop:text-3xl">Register</h3>
             <div className="py-4">
               <input className="font-bold border-2 border-black w-full" 
                 placeholder="Enter Username" 

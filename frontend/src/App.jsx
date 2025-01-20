@@ -7,6 +7,7 @@ import './interceptor/axios';
 import { Logout } from './components/logout'
 import Register from './pages/register'
 import Shop from './pages/shop'
+import Tickets from './pages/ticket_checkout'
 
 function App() {
 
@@ -21,6 +22,7 @@ function App() {
           <Route path='/logout' element={<Logout/>}/>
           <Route path='/register' element={<Register/>}/>
           <Route path='/shop' element={<Shop/>}/>
+          <Route path='/ticket-checkout' element={<Tickets/>}/>
           <Route path='*' element={<PageError/>}/>
         </Routes>
       </BrowserRouter>
