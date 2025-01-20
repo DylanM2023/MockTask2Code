@@ -8,3 +8,8 @@ class CustomUser(AbstractUser):
 
     def __str__(self) -> str:
         return self.email
+
+class TicketReserve(models.Model):
+    User_id = models.CharField(max_length=5000)
+    Ticket_id = models.CharField(max_length=5000)
+

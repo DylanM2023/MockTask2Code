@@ -23,18 +23,18 @@ const Shop = () => {
         <div className="desktop:flex desktop:place-content-center">
             <div className="flex px-14">
                     <div className="">
-                        <div className="bg-ticket_icon w-28 m-10 h-28 bg-no-repeat bg-center bg-cover border-2 border-black"><a className='flex flex-grow border-2 border-black h-28' href="/ticket-checkout"></a></div>
+                        <div className="bg-ticket_icon bg-white w-28 m-10 h-28 bg-no-repeat bg-center bg-cover border-2 border-black"><a className='flex flex-grow border-2 border-black h-28' href="/ticket-checkout"><p className='font-bold py-20 px-2'>ADULT £16</p></a></div>
                     </div>
                     <div className="">
-                        <div className="bg-ticket_icon w-28 m-10 h-28 bg-no-repeat bg-center bg-cover border-2 border-black"><a className='flex flex-grow border-2 border-black h-28' href="/ticket-checkout"></a></div>
+                        <div className="bg-ticket_icon bg-white w-28 m-10 h-28 bg-no-repeat bg-center bg-cover border-2 border-black"><a className='flex flex-grow border-2 border-black h-28' href="/ticket-checkout"><p className='font-bold py-20 px-3.5'>CHILD £8</p></a></div>
                     </div>
                 </div>
                 <div className="flex px-14">
                     <div className="">
-                        <div className="bg-ticket_icon w-28 m-10 h-28 bg-no-repeat bg-center bg-cover border-2 border-black"><a className='flex flex-grow border-2 border-black h-28' href="/ticket-checkout"></a></div>
+                        <div className="bg-ticket_icon bg-white w-28 m-10 h-28 bg-no-repeat bg-center bg-cover border-2 border-black"><a className='flex flex-grow border-2 border-black h-28' href="/ticket-checkout"><p className='font-bold py-20 px-3.5'>TEEN £12</p></a></div>
                     </div>
                 <div className="">
-                    <div className="bg-ticket_icon w-28 m-10 h-28 bg-no-repeat bg-center bg-cover border-2 border-black"><a className='flex flex-grow border-2 border-black h-28' href="/ticket-checkout"></a></div>
+                    <div className="bg-ticket_icon  bg-white w-28 m-10 h-28 bg-no-repeat bg-center bg-cover border-2 border-black"><a className='flex flex-grow border-2 border-black h-28' href="/ticket-checkout"><p className='font-bold py-20 px-2.5'>INFANT £0</p></a></div>
                 </div>
             </div>
         </div>
