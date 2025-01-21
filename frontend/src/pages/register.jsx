@@ -74,7 +74,7 @@ const Register = () => {
             <div className="text-red-500 font-bold py-1">{error}</div>
             <div className="text-center py-4">
               <button type="submit" 
-                 className="border-2 border-black text-lg">Register</button>
+                 className="border-2 border-black text-lg rounded-lg w-20 hover:bg-slate-500 hover:text-white">Register</button>
             </div>
             <div>Already have an account?<a className='text-blue-500 font-bold px-3' href="/login">Login Here</a></div>
           </div>

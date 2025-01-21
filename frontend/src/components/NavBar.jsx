@@ -14,12 +14,12 @@ const NavBar = () => {
     // Navbar with 4 Navigation options
     return ( 
     <>
-    <nav className="flex bg-green-600 h-12 justify-center">
-        <a href='/' className="flex-grow p-2.5 text-lg font-bold">RIDGET-ZOO-ADVENTURES</a>
-        <a href="/shop" className="text-center py-1.5 px-0.5 text-lg border-2 border-black">SHOP</a>
-        <a href="/shop" className="py-1.5 px-0.5 text-lg border-2 border-black">MAP</a>
-        {isAuth ? <Nav.Link href="/logout" className='py-1.5 px-0.5 text-lg border-2 border-black'>LOGOUT</Nav.Link> :  <Nav.Link href="/login" className='py-1.5 px-0.5 text-lg border-2 border-black'>LOGIN</Nav.Link>}
-        <a href="/shop" className="py-1.5 text-lg border-2 px-1 border-black">ACC</a>
+    <nav className="flex bg-green-600 h-12 w-auto justify-center ">
+        <a href='/' className="text-center flex-grow p-2.5 text-lg font-bold hover:text-white">RIDGET-ZOO-ADVENTURES</a>
+        <a href="/shop" className="text-center py-1.5 px-0.5 text-lg border-2 border-black hover:bg-green-700 hover:text-white rounded-xl desktop:flex-grow">SHOP</a>
+        <a href="/shop" className="py-1.5 px-0.5 text-center text-lg border-2 border-black hover:bg-green-700 hover:text-white rounded-xl desktop:flex-grow">MAP</a>
+        {isAuth ? <Nav.Link href="/logout" className='py-1.5 px-0.5 text-lg border-2 border-black hover:bg-green-700 hover:text-white rounded-xl desktop:flex-grow text-center'>LOGOUT</Nav.Link> :  <Nav.Link href="/login" className='text-center py-1.5 px-0.5 text-lg border-2 border-black hover:bg-green-700 hover:text-white rounded-xl desktop:flex-grow'>LOGIN</Nav.Link>}
+        <a href="/shop" className="text-center py-1.5 text-lg border-2 px-1 border-black hover:bg-green-700 hover:text-white rounded-xl desktop:flex-grow">ACC</a>
     </nav>
     </> 
     );

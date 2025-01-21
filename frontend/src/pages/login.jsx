@@ -57,7 +57,7 @@ const Login = () => {
               <div className="text-red-500 font-bold py-1">{error}</div>
               <div className="text-center">
                 <button type="submit" 
-                    className="border-2 border-black text-lg">Sign In</button>
+                    className="border-2 border-black text-lg rounded-lg w-20 hover:bg-slate-500 hover:text-white">Sign In</button>
               </div>
               <div>Don't have an account?<a className='text-blue-500 font-bold px-3' href="/register">Register Here</a></div>
             </div>
