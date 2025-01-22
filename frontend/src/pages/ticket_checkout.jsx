@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import NavBar from "../components/NavBar";
 import axios from "axios";
 import {jwtDecode} from "jwt-decode"
-import { v1 as uuidv4 } from 'uuid';
 
 const Tickets = () => {
     
@@ -18,24 +17,26 @@ const Tickets = () => {
         if(localStorage.getItem("access_token") === null){
             window.location.href = '/login'
         }
+        axios.defaults.headers.common['Authorization'] = `Bearer ${localStorage.getItem("access_token")}`;
 
-        setTicket_ID(uuidv4())
     }, []);
 
     const submit = () => { 
+        const total_tickets = adult + child + student + infant
 
+        for (let i = 0; i < total_tickets; i++ ){
+            
         const token = localStorage.getItem('access_token');
         const decoded = jwtDecode(token);
 
-        setTicket_ID(uuidv4())
         const reservation = {
                 User_id : decoded.user_id,
-                Ticket_id: ticket_id,
-                Ticket_type: 'Adult',
+                Ticket_type: 'Infant',
         };
-            
-        axios.defaults.headers.common['Authorization'] = `Bearer ${localStorage.getItem("access_token")}`;
+        
+        
         axios.post('http://localhost:8000/Tickets', reservation, {headers: {'Content-Type':'application/json'}}, {withCredentials: true})};
+        };
 
     // Logic Here
     

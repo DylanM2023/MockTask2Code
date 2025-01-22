@@ -34,7 +34,7 @@ class UserRegistrationAPIView(GenericAPIView):
     
 
 class TicketReservationView(APIView):
-    permission_classes = (IsAuthenticated,)
+    # permission_classes = (IsAuthenticated,)
     serializer_class = TicketReservationSerializer
     
     def get(self, request):

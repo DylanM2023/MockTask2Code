@@ -9,7 +9,7 @@ class CustomUserSerializer(serializers.ModelSerializer):
 class TicketReservationSerializer(serializers.ModelSerializer):
     class Meta:
         model = TicketReserve
-        fields = ["User_id", "Ticket_id"]
+        fields = ["User_id", "Ticket_id", "Ticket_type"]
 
 class UserRegistrationSerializer(serializers.ModelSerializer):
     password1 = serializers.CharField(write_only=True)
