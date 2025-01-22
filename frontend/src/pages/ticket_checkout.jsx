@@ -1,5 +1,8 @@
 import { useEffect, useState } from "react";
 import NavBar from "../components/NavBar";
+import axios from "axios";
+import {jwtDecode} from "jwt-decode"
+import { v1 as uuidv4 } from 'uuid';
 
 const Tickets = () => {
     
@@ -8,6 +11,7 @@ const Tickets = () => {
     const [student, setStudent] = useState()
     const [infant, setInfant] = useState()
     const [price, setPrice] = useState()
+    const [ticket_id, setTicket_ID] = useState()
 
     useEffect(()=>{
         setPrice(0.00)
@@ -16,6 +20,20 @@ const Tickets = () => {
         setStudent(0)
         setInfant(0)
     }, []);
+
+        const submit = () => { 
+
+            const token = localStorage.getItem('access_token');
+            const decoded = jwtDecode(token);
+
+            setTicket_ID(uuidv4())
+
+            const reservation = {
+                User_id : decoded.user_id,
+                Ticket_id: ticket_id,
+            };
+
+            axios.post('http://localhost:8000/Tickets', reservation, {headers: {'Content-Type':'application/json'}}, {withCredentials: true})};
 
     // Logic Here
     
@@ -40,7 +58,7 @@ const Tickets = () => {
                     <p p className="text-xl">2 and Under Price: £00.00  <button className='border-2 border-black w-10 rounded-2xl' onClick={()=>{setInfant(infant + 1)}}>{infant}</button> </p>
                 </div>
                 <div className="border-4 border-black py-6 px-2 text-center desktop:w-3/6">
-                    <h1 className="font-bold text-3xl">Price:£{price}.00 <button className="border-4 rounded-xl p-1.5 border-black">Checkout</button></h1>
+                    <h1 className="font-bold text-3xl">Price:£{price}.00 <button className="border-4 rounded-xl p-1.5 border-black" onClick={submit}>Checkout</button></h1>
                     <a href="/ticket-checkout" className="text-2xl font-bold">RESET</a>
                 </div>
             </div>

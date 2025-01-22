@@ -10,9 +10,6 @@ const Shop = () => {
         if (localStorage.getItem('access_token') === null){
             window.location.href = '/login'
         }
-        const token = localStorage.getItem('access_token');
-        const decoded = jwtDecode(token);
-        console.log(decoded)
     }, []);
 
     return ( 
