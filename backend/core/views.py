@@ -34,11 +34,11 @@ class UserRegistrationAPIView(GenericAPIView):
     
 
 class TicketReservationView(APIView):
-    # permission_classes = (IsAuthenticated,)
+    permission_classes = (IsAuthenticated,)
     serializer_class = TicketReservationSerializer
     
     def get(self, request):
-        ticket_id = [ {"User_id": ticket_id.User_id, "Ticket_id": ticket_id.Ticket_id} for ticket_id in TicketReserve.objects.all()]
+        ticket_id = [ {"User_id": ticket_id.User_id, "Ticket_id": ticket_id.Ticket_id, "Ticket_type": ticket_id.Ticket_type} for ticket_id in TicketReserve.objects.all()]
         return Response(ticket_id)
 
     def post(self, request):

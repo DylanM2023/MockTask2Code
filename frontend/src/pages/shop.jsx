@@ -1,6 +1,5 @@
 import { useEffect } from "react";
 import NavBar from "../components/NavBar"
-import {jwtDecode} from "jwt-decode"
 
 const Shop = () => {
     

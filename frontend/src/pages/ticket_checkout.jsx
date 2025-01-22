@@ -6,34 +6,36 @@ import { v1 as uuidv4 } from 'uuid';
 
 const Tickets = () => {
     
-    const [adult, setAdult] = useState()
-    const [child, setChild] = useState()
-    const [student, setStudent] = useState()
-    const [infant, setInfant] = useState()
-    const [price, setPrice] = useState()
+    const [adult, setAdult] = useState(0)
+    const [child, setChild] = useState(0)
+    const [student, setStudent] = useState(0)
+    const [infant, setInfant] = useState(0)
+    const [price, setPrice] = useState(0)
     const [ticket_id, setTicket_ID] = useState()
 
     useEffect(()=>{
-        setPrice(0.00)
-        setAdult(0)
-        setChild(0)
-        setStudent(0)
-        setInfant(0)
+
+        if(localStorage.getItem("access_token") === null){
+            window.location.href = '/login'
+        }
+
+        setTicket_ID(uuidv4())
     }, []);
 
-        const submit = () => { 
+    const submit = () => { 
 
-            const token = localStorage.getItem('access_token');
-            const decoded = jwtDecode(token);
+        const token = localStorage.getItem('access_token');
+        const decoded = jwtDecode(token);
 
-            setTicket_ID(uuidv4())
-
-            const reservation = {
+        setTicket_ID(uuidv4())
+        const reservation = {
                 User_id : decoded.user_id,
                 Ticket_id: ticket_id,
-            };
-
-            axios.post('http://localhost:8000/Tickets', reservation, {headers: {'Content-Type':'application/json'}}, {withCredentials: true})};
+                Ticket_type: 'Adult',
+        };
+            
+        axios.defaults.headers.common['Authorization'] = `Bearer ${localStorage.getItem("access_token")}`;
+        axios.post('http://localhost:8000/Tickets', reservation, {headers: {'Content-Type':'application/json'}}, {withCredentials: true})};
 
     // Logic Here
     
