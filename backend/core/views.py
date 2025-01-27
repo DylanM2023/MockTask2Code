@@ -48,7 +48,7 @@ class TicketReservationView(APIView):
             return Response(serializer.data)
 
 class HotelReservationView(APIView):
-    # permission_classes = (IsAuthenticated,)
+    permission_classes = (IsAuthenticated,)
     serializer_class = HotelReservationSerializer
 
     def get(self, request):
