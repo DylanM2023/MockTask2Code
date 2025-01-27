@@ -9,6 +9,8 @@ export default {
       backgroundImage: {
         landing_img: "url('./assets/indeximg.jpg')",
         ticket_icon: "url('./assets/ticket_icon.jpg')",
+        single_room: "url('./assets/single_room.jpg')",
+        double_room: "url('./assets/double_room.jpg')",
       },
     screens: {
       'desktop': '1280px',

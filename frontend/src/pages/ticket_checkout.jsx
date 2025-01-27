@@ -7,36 +7,72 @@ const Tickets = () => {
     
     const [adult, setAdult] = useState(0)
     const [child, setChild] = useState(0)
-    const [student, setStudent] = useState(0)
+    const [teen, setTeen] = useState(0)
     const [infant, setInfant] = useState(0)
     const [price, setPrice] = useState(0)
-    const [ticket_id, setTicket_ID] = useState()
 
     useEffect(()=>{
-
+        axios.defaults.headers.common['Authorization'] = `Bearer ${localStorage.getItem("access_token")}`;
         if(localStorage.getItem("access_token") === null){
             window.location.href = '/login'
         }
-        axios.defaults.headers.common['Authorization'] = `Bearer ${localStorage.getItem("access_token")}`;
-
     }, []);
 
     const submit = () => { 
-        const total_tickets = adult + child + student + infant
 
-        for (let i = 0; i < total_tickets; i++ ){
+        for (let i = 0; i < adult; i++ ){
             
         const token = localStorage.getItem('access_token');
         const decoded = jwtDecode(token);
 
         const reservation = {
                 User_id : decoded.user_id,
-                Ticket_type: 'Infant',
+                Ticket_type: 'Adult',
         };
         
-        
+        axios.defaults.headers.common['Authorization'] = `Bearer ${localStorage.getItem("access_token")}`;
         axios.post('http://localhost:8000/Tickets', reservation, {headers: {'Content-Type':'application/json'}}, {withCredentials: true})};
-        };
+
+        for (let i = 0; i < child; i++ ){
+            
+            const token = localStorage.getItem('access_token');
+            const decoded = jwtDecode(token);
+    
+            const reservation = {
+                    User_id : decoded.user_id,
+                    Ticket_type: 'Child',
+            };
+            
+            axios.defaults.headers.common['Authorization'] = `Bearer ${localStorage.getItem("access_token")}`;
+            axios.post('http://localhost:8000/Tickets', reservation, {headers: {'Content-Type':'application/json'}}, {withCredentials: true})};
+    
+        for (let i = 0; i < teen; i++ ){
+            
+            const token = localStorage.getItem('access_token');
+            const decoded = jwtDecode(token);
+        
+            const reservation = {
+                    User_id : decoded.user_id,
+                    Ticket_type: 'Teen',
+            };
+                
+            axios.defaults.headers.common['Authorization'] = `Bearer ${localStorage.getItem("access_token")}`;
+            axios.post('http://localhost:8000/Tickets', reservation, {headers: {'Content-Type':'application/json'}}, {withCredentials: true})};
+
+        for (let i = 0; i < infant; i++ ){
+            
+            const token = localStorage.getItem('access_token');
+            const decoded = jwtDecode(token);
+            
+            const reservation = {
+                    User_id : decoded.user_id,
+                    Ticket_type: 'Infant',
+            };
+                    
+                    
+            axios.defaults.headers.common['Authorization'] = `Bearer ${localStorage.getItem("access_token")}`;
+            axios.post('http://localhost:8000/Tickets', reservation, {headers: {'Content-Type':'application/json'}}, {withCredentials: true})};
+    };
 
     // Logic Here
     
@@ -54,7 +90,7 @@ const Tickets = () => {
                 </div>
                 <div className="border-4 border-black py-6 px-2 text-center desktop:w-3/6">
                     <h2 className="font-bold text-3xl">Teen</h2>
-                    <p p className="text-xl">14 and Over Price: £12.00  <button className='border-2 border-black w-10 rounded-2xl' onClick={()=>{setStudent(student + 1), setPrice(price + 12)}}>{student}</button> </p>
+                    <p p className="text-xl">14 and Over Price: £12.00  <button className='border-2 border-black w-10 rounded-2xl' onClick={()=>{setTeen(teen + 1), setPrice(price + 12)}}>{teen}</button> </p>
                 </div>
                 <div className="border-4 border-black py-6 px-2 text-center desktop:w-3/6">
                     <h2 className="font-bold text-3xl">Infant</h2>

@@ -16,7 +16,7 @@ const Shop = () => {
         <div className="flex-col bg-landing_img h-screen w-auto bg-no-repeat bg-cover bg-center">
             <NavBar/>
         <div className="place-items-center">
-            <div className="bg-landing_img w-96 m-10 h-60 bg-no-repeat bg-cover border-2 border-black bg-center desktop:w-3/6 desktop:h-96"></div>
+            <div className="bg-landing_img w-96 m-10 h-60 bg-no-repeat bg-cover border-2 border-black bg-center desktop:w-3/6 desktop:h-96"><a href="/hotel-checkout" className="flex flex-grow h-full desktop:h-full hover:border-2 hover:border-white"></a></div>
                 <div className="m-10 text-white bg-slate-600 bg-opacity-80 border-2 border-black px-1">
                     <h1 className="font-bold py-1.5 text-xl">Room Number/Name</h1>
                     <p className="">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus reprehenderit quae pariatur recusandae</p>

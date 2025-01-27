@@ -6,6 +6,7 @@ const Home = () => {
     //  Home page has image of a forest covering it
 
     
+    
     return ( 
     <>
         <div className="bg-landing_img h-auto w-auto bg-no-repeat bg-cover border-0">

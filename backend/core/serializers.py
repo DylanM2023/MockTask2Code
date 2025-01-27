@@ -1,4 +1,4 @@
-from .models import CustomUser, TicketReserve
+from .models import CustomUser, TicketReserve, HotelReserve
 from rest_framework import serializers
 
 class CustomUserSerializer(serializers.ModelSerializer):
@@ -10,6 +10,11 @@ class TicketReservationSerializer(serializers.ModelSerializer):
     class Meta:
         model = TicketReserve
         fields = ["User_id", "Ticket_id", "Ticket_type"]
+
+class HotelReservationSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = HotelReserve
+        fields = ["User_id", "RoomKey_id", "Room_type", "Start_date", "End_date"]
 
 class UserRegistrationSerializer(serializers.ModelSerializer):
     password1 = serializers.CharField(write_only=True)
