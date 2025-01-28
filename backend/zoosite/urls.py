@@ -16,7 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from core.views import TicketReservationView, HotelReservationView
+from core.views import TicketReservationView, HotelReservationView, AccountAPIView
 from rest_framework_simplejwt import views as jwt_views
 
 urlpatterns = [
@@ -29,5 +29,6 @@ urlpatterns = [
             name ='token_refresh'),
     path('Tickets', TicketReservationView.as_view(), name='Ticket_Reservaton'),
     path('Hotel', HotelReservationView.as_view(), name="Hotel_Reservation"),
+    path('Accounts', AccountAPIView.as_view(), name='Account Details'),
     path('', include('core.urls')),
 ]

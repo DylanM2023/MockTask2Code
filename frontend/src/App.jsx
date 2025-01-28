@@ -10,6 +10,7 @@ import Shop from './pages/shop'
 import Tickets from './pages/ticket_checkout'
 import Hotels from './pages/hotel_checkout'
 import Account from './pages/account'
+import Map from './pages/map'
 
 function App() {
 
@@ -27,6 +28,7 @@ function App() {
           <Route path='/ticket-checkout' element={<Tickets/>}/>
           <Route path='/hotel-checkout' element={<Hotels/>}/>
           <Route path='/account' element={<Account/>}/>
+          <Route path='/map' element={<Map/>}/>
           <Route path='*' element={<PageError/>}/>
         </Routes>
       </BrowserRouter>

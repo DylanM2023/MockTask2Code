@@ -72,9 +72,8 @@ const Tickets = () => {
                     
             axios.defaults.headers.common['Authorization'] = `Bearer ${localStorage.getItem("access_token")}`;
             axios.post('http://localhost:8000/Tickets', reservation, {headers: {'Content-Type':'application/json'}}, {withCredentials: true})};
-    };
-
-    // Logic Here
+            window.location.href = '/account'
+        };
     
     return ( <>
             <NavBar/>

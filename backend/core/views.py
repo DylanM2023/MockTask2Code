@@ -33,8 +33,17 @@ class UserRegistrationAPIView(GenericAPIView):
         return Response(data, status= status.HTTP_201_CREATED)
     
 
+class AccountAPIView(APIView):
+    permission_classes = (IsAuthenticated,)
+    serializer_class = CustomUserSerializer
+    
+    def get(self, request):
+        user = request.user.id 
+        user_info = [{"username": user_info.username, "email": user_info.email} for user_info in CustomUser.objects.filter(id=user)]
+        return Response(user_info)
+    
 class TicketReservationView(APIView):
-    # permission_classes = (IsAuthenticated,)
+    permission_classes = (IsAuthenticated,)
     serializer_class = TicketReservationSerializer
     
     def get(self, request):
@@ -53,7 +62,8 @@ class HotelReservationView(APIView):
     serializer_class = HotelReservationSerializer
 
     def get(self, request):
-        hotel_id = [ {"User_id": hotel_id.User_id, "RoomKey_id": hotel_id.RoomKey_id, "Room_type": hotel_id.Room_type, "Start_date":hotel_id.Start_date, "End_date":hotel_id.End_date} for hotel_id in HotelReserve.objects.all()]
+        user_id = request.user.id
+        hotel_id = [ {"User_id": hotel_id.User_id, "RoomKey_id": hotel_id.RoomKey_id, "Room_type": hotel_id.Room_type, "Start_date":hotel_id.Start_date, "End_date":hotel_id.End_date} for hotel_id in HotelReserve.objects.filter(User_id = user_id)]
         return Response(hotel_id)
 
     def post(self, request):

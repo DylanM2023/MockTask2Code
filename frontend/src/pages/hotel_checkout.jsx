@@ -19,7 +19,7 @@ const Hotels = () => {
             window.location.href = "/login"
         }
         axios.defaults.headers.common['Authorization'] = `Bearer ${localStorage.getItem("access_token")}`;
-        setRoom_Type('single')
+        setRoom_Type('Single')
     }, [])
     
     const submit = () => { 
@@ -35,7 +35,8 @@ const Hotels = () => {
         };
         axios.defaults.headers.common['Authorization'] = `Bearer ${localStorage.getItem("access_token")}`;
         axios.post('http://localhost:8000/Hotel', reservation, {headers: {'Content-Type':'application/json'}}, {withCredentials: true});
-        };
+        window.location.href = '/account'
+    };
 
     return ( 
     <>
@@ -45,7 +46,7 @@ const Hotels = () => {
         <div className="">
             <h1 className="text-5xl font-bold my-5 text-center">Hotels</h1>
             <div className="place-items-center">
-            {room_type == 'single' && (
+            {room_type == 'Single' && (
                 <>
                 <div className="bg-single_room w-96 m-10 h-60 bg-no-repeat bg-cover border-2 border-black bg-center desktop:w-2/5 desktop:h-96"></div>
                 <div className="border-2 border-black w-96 h-22">
@@ -54,7 +55,7 @@ const Hotels = () => {
                 </div>
                 </>
             )}
-            {room_type == 'double' && (
+            {room_type == 'Double' && (
                 <>
                 <div className="bg-double_room w-96 m-10 h-60 bg-no-repeat bg-cover border-2 border-black bg-center desktop:w-2/5 desktop:h-96"></div>
                 <div className="border-2 border-black w-96 h-22">
@@ -63,7 +64,7 @@ const Hotels = () => {
                 </div>
                 </>
             )}
-            {room_type == 'family' && (
+            {room_type == 'Family' && (
                 <>
                 <div className="bg-single_room w-96 m-10 h-60 bg-no-repeat bg-cover border-2 border-black bg-center desktop:w-2/5 desktop:h-96"></div>
                 <div className="border-2 border-black w-96 h-22">
@@ -72,7 +73,7 @@ const Hotels = () => {
                 </div>
                 </>
             )}
-            {room_type == 'suite' && (
+            {room_type == 'Suite' && (
                 <>
                 <div className="bg-single_room w-96 m-10 h-60 bg-no-repeat bg-cover border-2 border-black bg-center desktop:w-2/5 desktop:h-96"></div>
                 <div className="border-2 border-black w-96 h-22">
@@ -82,10 +83,10 @@ const Hotels = () => {
                 </>
             )}
             <div className="w-58 my-1">
-                <button className="font-bold px-2 border-2 border-black hover:bg-slate-100" onClick={()=>{setRoom_Type('single'), setPrice(100)}}>Single</button>
-                <button className="font-bold px-2 border-2 border-black hover:bg-slate-100" onClick={()=>{setRoom_Type('double'), setPrice(200)}}>Double</button>
-                <button className="font-bold px-2 border-2 border-black hover:bg-slate-100" onClick={()=>{setRoom_Type('family'), setPrice(300)}}>Family</button>
-                <button className="font-bold px-2 border-2 border-black hover:bg-slate-100" onClick={()=>{setRoom_Type('suite'), setPrice(500)}}>Suite</button>
+                <button className="font-bold px-2 border-2 border-black hover:bg-slate-100" onClick={()=>{setRoom_Type('Single'), setPrice(100)}}>Single</button>
+                <button className="font-bold px-2 border-2 border-black hover:bg-slate-100" onClick={()=>{setRoom_Type('Double'), setPrice(200)}}>Double</button>
+                <button className="font-bold px-2 border-2 border-black hover:bg-slate-100" onClick={()=>{setRoom_Type('Family'), setPrice(300)}}>Family</button>
+                <button className="font-bold px-2 border-2 border-black hover:bg-slate-100" onClick={()=>{setRoom_Type('Suite'), setPrice(500)}}>Suite</button>
             </div>
             <div className="flex flex-col w-96">
                 <h3 className="font-bold text-xl">Date of stay</h3>
