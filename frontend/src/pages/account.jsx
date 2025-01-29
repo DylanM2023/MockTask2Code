@@ -27,7 +27,7 @@ const Account = () => {
         if (localStorage.getItem("access_token") === null){
             window.location.href = '/login'
         }
-
+        else{
         axios.defaults.headers.common['Authorization'] = `Bearer ${localStorage.getItem("access_token")}`;
         axios.get(`http://localhost:8000/Tickets`).then(response => {
             setTickets(response.data)
@@ -50,7 +50,7 @@ const Account = () => {
         })
         .catch(error => {
             console.error(error);
-        });
+        });}
         
     }, [])
 
