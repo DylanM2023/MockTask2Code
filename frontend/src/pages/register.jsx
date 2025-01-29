@@ -20,20 +20,21 @@ const Register = () => {
             password1: password1,
             password2: password2,
         };
-        try {
           const {data} =  await axios.post('http://localhost:8000/register/', new_user, {headers: {'Content-Type':'application/json'}}, {withCredentials: true});
+          if (data === null){
+            setError("Invalid Inputs")
+          }
 
-          window.location.href = '/login'
-        } catch(err){
-          setError('Invalid Input')
-        }
+          else{
+            window.location.href = '/login'
+          }
     };
     
     
     return ( 
 
         <div className="place-items-center">
-          <div className="bg-landing_img w-2/3 bg-center mx-10 my-5 h-60 bg-no-repeat bg-cover border-2 border-black"></div>
+          <div className="bg-otter_image w-2/3 bg-center mx-10 my-5 h-60 bg-no-repeat bg-cover border-2 border-black desktop:h-96 desktop:w-1/3"></div>
         <form className="flex-col justify-center w-2/3 mx-20" onSubmit={submit}>
           <div>
             <h3 className="font-bold text-2xl text-center py-2 desktop:text-3xl">Register</h3>

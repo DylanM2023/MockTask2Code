@@ -22,5 +22,3 @@ class HotelReserve(models.Model):
     Start_date = models.DateField(auto_now=False)
     End_date = models.DateField(auto_now=False)
 
-
-

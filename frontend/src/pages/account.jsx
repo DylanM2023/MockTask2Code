@@ -57,33 +57,32 @@ const Account = () => {
     return ( 
         <>
         <NavBar/>
-        <div className="flex-col place-items-center">
-            <h1 className="font-bold text-3xl my-10">User Details</h1>
+        <div className="flex-col desktop:flex-row place-items-center desktop:text-lg">
+            <h1 className="text-center font-bold text-3xl my-10">User Details</h1>
             <ul>{accounts.length > 0 ? (accounts.map((info, index)=>(
-                <li key={index}>
+                <li key={index} className="text-center">
                     <strong>Username:</strong> {info.username} <br />
                     <strong>Email:</strong> {info.email}
                 </li>
             ))):<p>No Account</p>}</ul>
             <h1 className="font-bold text-3xl my-10">Tickets</h1> 
             <ul>{tickets.length > 0 ? (tickets.map((ticket, index)=>(
-                <li key={index}>
-                    <strong>Type:</strong>{ticket.Ticket_type} <br />
-                    <div>
-                        <QRCodeSVG value = {ticket.Ticket_id} size = {128} level='H'/>
-                    </div>
+                <li key={index} className="border-2 w-52 h-72 place-items-center">
+                    <div className="place-items-center my-10"><QRCodeSVG value = {ticket.Ticket_id} size = {128} level='H'/></div>
+                    <strong>Type: </strong>{ticket.Ticket_type} <br />
                 </li>
             ))):(<p>No Tickets</p>)}</ul> 
             <h1 className="font-bold text-3xl my-10">Hotels</h1> 
             <ul>{hotels.length > 0 ? (hotels.map((hotel, index)=>(
-                <li key={index}>
-                    <strong>Type:</strong>{hotel.Room_type} <br />
-                    <QRCodeSVG value = {hotel.RoomKey_id} size = {128} level='H'/>
-                    <strong>StartDate:</strong> {hotel.Start_date} <br />
-                    <strong>EndDate:</strong> {hotel.End_date} <br />
+                <li key={index} className="border-2 w-52 h-72 place-items-center">
+                    <div className="my-10"><QRCodeSVG value = {hotel.RoomKey_id} size = {128} level='H'/></div>
+                    <strong>Type: </strong>{hotel.Room_type} <br />
+                    <strong>StartDate: </strong> {hotel.Start_date} <br />
+                    <strong>EndDate: </strong> {hotel.End_date} <br />
                 </li>
             ))):(<p>No Hotels</p>)}</ul> 
-        </div>      
+        </div>   
+        <div>{accounts == ''? (<></>):<></>}</div>
         </>
     );
 }

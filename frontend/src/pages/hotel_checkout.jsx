@@ -66,7 +66,7 @@ const Hotels = () => {
             )}
             {room_type == 'Family' && (
                 <>
-                <div className="bg-single_room w-96 m-10 h-60 bg-no-repeat bg-cover border-2 border-black bg-center desktop:w-2/5 desktop:h-96"></div>
+                <div className="bg-family_room w-96 m-10 h-60 bg-no-repeat bg-cover border-2 border-black bg-center desktop:w-2/5 desktop:h-96"></div>
                 <div className="border-2 border-black w-96 h-22">
                     <h2 className="text-2xl font-bold">Family</h2>
                     <p className="p-1.5">This room has a two single beds and one double bed. Recommended for families of four.</p>
@@ -75,7 +75,7 @@ const Hotels = () => {
             )}
             {room_type == 'Suite' && (
                 <>
-                <div className="bg-single_room w-96 m-10 h-60 bg-no-repeat bg-cover border-2 border-black bg-center desktop:w-2/5 desktop:h-96"></div>
+                <div className="bg-suite_room w-96 m-10 h-60 bg-no-repeat bg-cover border-2 border-black bg-center desktop:w-2/5 desktop:h-96"></div>
                 <div className="border-2 border-black w-96 h-22">
                     <h2 className="text-2xl font-bold">Suite</h2>
                     <p className="p-1.5">The suite has a double bed and a sofa bed. This room features a living room and desk area. This room is recommended for two to four people.</p>

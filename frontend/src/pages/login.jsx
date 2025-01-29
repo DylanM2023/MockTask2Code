@@ -33,7 +33,7 @@ const Login = () => {
 
     return ( 
         <div className="h-max w-auto place-items-center">
-          <div className="bg-landing_img bg- w-2/3 my-5 phone:h-60 bg-no-repeat bg-cover border-2 border-black desktop:h-96"></div>
+          <div className="bg-otter_image bg- w-2/3 my-5 phone:h-60 bg-no-repeat bg-cover border-2 border-black desktop:h-96 desktop:w-1/3"></div>
           <form className="flex-col mx-20 desktop:w-1/3" onSubmit={submit}>
             <div>
               <h3 className="font-bold text-2xl text-center py-2 desktop:text-3xl">Sign In</h3>
